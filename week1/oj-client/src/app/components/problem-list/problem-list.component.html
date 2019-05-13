@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="list-group">
+    <a *ngFor="let problem of problems"
+      routerLink="/problems/{{problem.id}}"
+      class="list-group-item list-group-item-action"
+      (click)="onSelect(problem)">
+      <span class="">{{problem.difficulty[0].toUpperCase()+problem.difficulty.slice(1)}}</span> {{problem.id}} {{problem.name}}
+    </a>
+  </div>
+</div>
