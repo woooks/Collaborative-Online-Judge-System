@@ -264,7 +264,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <!-- 可以用formRef来reference这个NgForm的instance。这样你可以用formRef来取这个form的值，如formRef.value -->\n  <form #formRef=\"ngForm\">\n    <div class=\"form-group\" >\n      <label for=\"problemName\">Problem Name</label>\n      <!-- #name=\"ngModel\" exports NgModel into a local variable called name -->\n      <input type=\"text\" class=\"form-control\" id=\"problemName\"\n       name=\"problemName\" placeholder=\"Input problem name\" required [(ngModel)]=\"newProblem.name\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"problemDesc\">Problem Description</label>\n      <input type=\"text\" class=\"form-control\" id=\"problemDesc\" name=\"problemDesc\"\n       placeholder=\"Input problem description\" required [(ngModel)]=\"newProblem.desc\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"difficulty\">Difficulty</label>\n      <select class=\"form-control\" id=\"difficulty\" name=\"difficulty\" [(ngModel)]=\"newProblem.difficulty\">\n        <option *ngFor=\"let difficulty of difficulties\" [value]=\"difficulty\">\n          {{difficulty}}\n        </option>\n      </select>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-md-12\">\n        <button type=\"submit\" class=\"btn btn-primary pull-right\"\n         (click)=\"addProblem()\">Add Problem</button>\n      </div>\n    </div>\n  </form>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <form #formRef=\"ngForm\" class=\"needs-validation\" novalidate>\n    <div class=\"form-group\" >\n      <label for=\"problemName\">Problem Name</label>\n      <input type=\"text\" class=\"form-control\" id=\"problemName\"\n       name=\"problemName\" placeholder=\"Input problem name\" [(ngModel)]=\"newProblem.name\" required>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"problemDesc\">Problem Description</label>\n      <textarea type=\"text\" class=\"form-control\" rows =\"4\" id=\"problemDesc\" name=\"problemDesc\"\n       placeholder=\"Input problem description\" [(ngModel)]=\"newProblem.desc\" required>\n     </textarea>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"difficulty\">Difficulty</label>\n      <select class=\"form-control\" id=\"difficulty\" name=\"difficulty\" [(ngModel)]=\"newProblem.difficulty\">\n        <option value=\"\" disabled selected>Select Difficulty</option>\n        <option *ngFor=\"let difficulty of difficulties\" [value]=\"difficulty\">\n          {{difficulty}}\n        </option>\n      </select>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-md-12\">\n        <button type=\"submit\" class=\"btn btn-primary pull-right\"\n         (click)=\"addProblem()\">Add Problem</button>\n      </div>\n    </div>\n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -288,7 +288,7 @@ var DEFAULT_PROBLEM = Object.freeze({
     id: 0,
     name: '',
     desc: '',
-    difficulty: 'easy'
+    difficulty: ''
 });
 var NewProblemComponent = /** @class */ (function () {
     function NewProblemComponent(dataService) {
@@ -411,7 +411,7 @@ module.exports = ".difficulty {\n  min-width: 65px;\n  margin-right: 10px;\n  pa
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"list-group\">\n    <a *ngFor=\"let problem of problems\"\n      routerLink=\"/problems/{{problem.id}}\"\n      class=\"list-group-item list-group-item-action\">\n      <span class=\"{{'badge pull-left label difficulty diff-'+problem.difficulty.toLowerCase()}}\">{{problem.difficulty[0].toUpperCase()+problem.difficulty.slice(1)}}</span>\n      <strong>{{problem.id}}. {{problem.name}}</strong>\n    </a>\n  </div>\n</div>\n\n<app-new-problem></app-new-problem>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"list-group\">\n    <a *ngFor=\"let problem of problems\"\n      routerLink=\"/problems/{{problem.id}}\"\n      class=\"list-group-item list-group-item-action\">\n      <span class=\"{{'badge pull-left label difficulty diff-'+problem.difficulty.toLocaleLowerCase()}}\">{{problem.difficulty[0].toUpperCase()+problem.difficulty.slice(1)}}</span>\n      <strong>{{problem.id}}. {{problem.name}}</strong>\n    </a>\n  </div>\n</div>\n\n<app-new-problem></app-new-problem>\n"
 
 /***/ }),
 
