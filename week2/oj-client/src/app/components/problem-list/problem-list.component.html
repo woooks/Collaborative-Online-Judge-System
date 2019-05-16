@@ -2,10 +2,11 @@
   <div class="list-group">
     <a *ngFor="let problem of problems"
       routerLink="/problems/{{problem.id}}"
-      class="list-group-item list-group-item-action"
-      (click)="onSelect(problem)">
+      class="list-group-item list-group-item-action">
       <span class="{{'badge pull-left label difficulty diff-'+problem.difficulty.toLowerCase()}}">{{problem.difficulty[0].toUpperCase()+problem.difficulty.slice(1)}}</span>
       <strong>{{problem.id}}. {{problem.name}}</strong>
     </a>
   </div>
 </div>
+
+<app-new-problem></app-new-problem>
