@@ -4,14 +4,19 @@ import { ProblemListComponent } from './components/problem-list/problem-list.com
 import { ProblemDetailComponent } from './components/problem-detail/problem-detail.component';
 import { CallbackComponent } from './components/callback/callback.component';
 import { ProfileComponent } from './components/profile/profile.component';
-
+import { AuthGuardService } from './services/auth-guard.service'
 // What does angular router mean?
 const routes: Routes = [
   { path: '', redirectTo: "problems", pathMatch: "full" },
   { path: 'callback', component: CallbackComponent },
   { path: 'problems', component: ProblemListComponent },
   { path: 'problems/:id', component: ProblemDetailComponent },
-  { path: 'profile', component: ProfileComponent },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuardService]
+
+  },
   { path: '**', redirectTo: 'problems'}
   // Why auth0 doesn't work when redirectTo "Problem"
 ];
