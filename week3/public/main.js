@@ -404,7 +404,7 @@ var EditorComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* @media screen { */\n  #editor {\n      position: absolute;\n      top: 0;\n      right: 0;\n      bottom: 0;\n      left: 0;\n      height: 600px;\n      font-size: 20px;\n  }\n  /* } */\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9lZGl0b3JfMS9lZGl0b3IuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxvQkFBb0I7RUFDbEI7TUFDSSxrQkFBa0I7TUFDbEIsTUFBTTtNQUNOLFFBQVE7TUFDUixTQUFTO01BQ1QsT0FBTztNQUNQLGFBQWE7TUFDYixlQUFlO0VBQ25CO0VBQ0YsTUFBTSIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvZWRpdG9yXzEvZWRpdG9yLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBAbWVkaWEgc2NyZWVuIHsgKi9cbiAgI2VkaXRvciB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICB0b3A6IDA7XG4gICAgICByaWdodDogMDtcbiAgICAgIGJvdHRvbTogMDtcbiAgICAgIGxlZnQ6IDA7XG4gICAgICBoZWlnaHQ6IDYwMHB4O1xuICAgICAgZm9udC1zaXplOiAyMHB4O1xuICB9XG4vKiB9ICovXG4iXX0= */"
+module.exports = "/* @media screen { */\n  /* #editor {\n      position: absolute;\n      top: 0;\n      right: 0;\n      bottom: 0;\n      left: 0;\n      height: 600px;\n\n  } */\n  /* } */\n  @media screen {\n\t#editor {\n\t\theight: 600px;\n    font-size: 20px;\n\t}\n\t.lang-select {\n\t\twidth: 100px;\n\t\tmargin-right: 10px;\n\t}\n\theader .btn {\n\t\tmargin: 0 5px;\n\t}\n\tfooter .btn {\n\t\tmargin: 0 5px;\n\t}\n\t.editor-footer, .editor-header {\n\t\tmargin: 10px 0;\n\t}\n\t.cursor {\n\t\t/*position:absolute;*/\n\t\tbackground: rgba(0, 250, 0, 0.5);\n\t\tz-index: 40;\n\t\twidth: 2px !important;\n\t}\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9lZGl0b3JfMS9lZGl0b3IuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxvQkFBb0I7RUFDbEI7Ozs7Ozs7O0tBUUc7RUFDTCxNQUFNO0VBQ047Q0FDQztFQUNDLGFBQWE7SUFDWCxlQUFlO0NBQ2xCO0NBQ0E7RUFDQyxZQUFZO0VBQ1osa0JBQWtCO0NBQ25CO0NBQ0E7RUFDQyxhQUFhO0NBQ2Q7Q0FDQTtFQUNDLGFBQWE7Q0FDZDtDQUNBO0VBQ0MsY0FBYztDQUNmO0NBQ0E7RUFDQyxxQkFBcUI7RUFDckIsZ0NBQWdDO0VBQ2hDLFdBQVc7RUFDWCxxQkFBcUI7Q0FDdEI7QUFDRCIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvZWRpdG9yXzEvZWRpdG9yLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBAbWVkaWEgc2NyZWVuIHsgKi9cbiAgLyogI2VkaXRvciB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICB0b3A6IDA7XG4gICAgICByaWdodDogMDtcbiAgICAgIGJvdHRvbTogMDtcbiAgICAgIGxlZnQ6IDA7XG4gICAgICBoZWlnaHQ6IDYwMHB4O1xuXG4gIH0gKi9cbi8qIH0gKi9cbkBtZWRpYSBzY3JlZW4ge1xuXHQjZWRpdG9yIHtcblx0XHRoZWlnaHQ6IDYwMHB4O1xuICAgIGZvbnQtc2l6ZTogMjBweDtcblx0fVxuXHQubGFuZy1zZWxlY3Qge1xuXHRcdHdpZHRoOiAxMDBweDtcblx0XHRtYXJnaW4tcmlnaHQ6IDEwcHg7XG5cdH1cblx0aGVhZGVyIC5idG4ge1xuXHRcdG1hcmdpbjogMCA1cHg7XG5cdH1cblx0Zm9vdGVyIC5idG4ge1xuXHRcdG1hcmdpbjogMCA1cHg7XG5cdH1cblx0LmVkaXRvci1mb290ZXIsIC5lZGl0b3ItaGVhZGVyIHtcblx0XHRtYXJnaW46IDEwcHggMDtcblx0fVxuXHQuY3Vyc29yIHtcblx0XHQvKnBvc2l0aW9uOmFic29sdXRlOyovXG5cdFx0YmFja2dyb3VuZDogcmdiYSgwLCAyNTAsIDAsIDAuNSk7XG5cdFx0ei1pbmRleDogNDA7XG5cdFx0d2lkdGg6IDJweCAhaW1wb3J0YW50O1xuXHR9XG59XG4iXX0= */"
 
 /***/ }),
 
@@ -415,7 +415,7 @@ module.exports = "/* @media screen { */\n  #editor {\n      position: absolute;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div  id=\"editor\">\n\n</div>\n"
+module.exports = "\n<!-- <div id=\"editor\"></div>\n\n<div>\n  {{output}}\n</div> -->\n<section>\n  <header class=\"editor-header\">\n    <select class=\"form-control pull-left lang-select\" name=\"language\"\n      [(ngModel)]=\"language\" (change)=\"setLanguage(language)\">\n      <option *ngFor=\"let language of languages\" [value]=\"language\">\n        {{language}}\n      </option>\n    </select>\n    <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#myModal\">\n      Reset\n    </button>\n\n\n    <div class=\"modal fade\" id=\"myModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n      <div class=\"modal-dialog\" role=\"document\">\n        <div class=\"modal-content\">\n          <div class=\"modal-header\">\n            <h5 class=\"modal-title\" id=\"exampleModalLabel\">Are you sure</h5>\n            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n              <span aria-hidden=\"true\">&times;</span>\n            </button>\n          </div>\n          <div class=\"modal-body\">\n            You will lose current code in the editor, are you sure?\n          </div>\n          <div class=\"modal-footer\">\n            <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cancel</button>\n            <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\"\n            (click)=\"resetEditor()\">Reset</button>\n          </div>\n        </div>\n      </div>\n    </div>\n  </header>\n    <div id=\"editor\">\n    <div>\n      Output: {{output}}\n    </div>\n    <div>\n      Users: {{users}}\n    </div>\n  </div>\n  <footer class=\"editor-footer\">\n      <button type=\"button\" class=\"btn btn-success pull-right\"\n      (click)=\"submit()\">Submit Solution</button>\n  </footer>\n</section>\n"
 
 /***/ }),
 
@@ -441,8 +441,12 @@ var Editor1Component = /** @class */ (function () {
     function Editor1Component(collaboration, route) {
         this.collaboration = collaboration;
         this.route = route;
+        this.languages = ['Java', 'Python', 'C++'];
+        this.language = 'Java';
         this.defaultContent = {
-            'Java': "public class Example {\n      public static void main(String[] args) {\n        // Type your code here\n      }\n    }"
+            'Java': "public class Solution{\n      public static void main(String[] args){\n        // Please type your code here...\n      }\n    }",
+            'Python': "class Solution:\n      def example():\n        # Please type your code here...\n    ",
+            'C++': "int main(){\n        /* Please type your code here... */\n      }"
         };
     }
     Editor1Component.prototype.ngOnInit = function () {
@@ -461,8 +465,7 @@ var Editor1Component = /** @class */ (function () {
             maxLines: Infinity
         });
         this.editor.setTheme("ace/theme/dracula");
-        this.editor.session.setMode("ace/mode/java");
-        this.editor.setValue(this.defaultContent['Java']);
+        this.resetEditor();
         document.getElementsByTagName('textarea')[0].focus();
         this.collaboration.init(this.editor, this.sessionId);
         this.editor.lastAppliedChange = null;
@@ -479,7 +482,14 @@ var Editor1Component = /** @class */ (function () {
         });
         this.collaboration.restoreBuffer();
     };
-    Editor1Component.prototype.setLanguage = function (language) { };
+    Editor1Component.prototype.setLanguage = function (language) {
+        this.language = language;
+        this.resetEditor();
+    };
+    Editor1Component.prototype.resetEditor = function () {
+        this.editor.getSession().setMode("ace/mode/" + this.language.toLowerCase());
+        this.editor.setValue(this.defaultContent[this.language]);
+    };
     Editor1Component = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-editor1',

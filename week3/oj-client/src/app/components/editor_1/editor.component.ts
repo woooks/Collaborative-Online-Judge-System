@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ace } from '../../../../node_modules/ace-builds/src-noconflict/ace';
 import { CollaborationService } from '../../services/collaboration.service';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
+
 
 declare var ace: any;
 
@@ -14,13 +16,25 @@ export class Editor1Component implements OnInit {
 
   editor: any;
   sessionId: string;
+  languages: string[] = ['Java', 'Python', 'C++'];
+  language: string = 'Java';
+  output: string;
+  users: string;
+  subscriptionUsers: Subscription;
 
   defaultContent = {
-    'Java': `public class Example {
-      public static void main(String[] args) {
-        // Type your code here
+    'Java': `public class Solution{
+      public static void main(String[] args){
+        // Please type your code here...
       }
-    }`
+    }`,
+    'Python': `class Solution:
+      def example():
+        # Please type your code here...
+    `,
+    'C++':`int main(){
+        /* Please type your code here... */
+      }`
   }
 
   constructor(
@@ -43,8 +57,7 @@ export class Editor1Component implements OnInit {
       maxLines: Infinity
     });
     this.editor.setTheme("ace/theme/dracula");
-    this.editor.session.setMode("ace/mode/java");
-    this.editor.setValue(this.defaultContent['Java']);
+    this.resetEditor();
 
     document.getElementsByTagName('textarea')[0].focus();
 
@@ -67,7 +80,15 @@ export class Editor1Component implements OnInit {
     this.collaboration.restoreBuffer();
   }
 
-  setLanguage(language: string): void{}
+  setLanguage(language: string): void {
+    this.language = language;
+    this.resetEditor();
+  }
+
+  resetEditor(): void {
+    this.editor.getSession().setMode("ace/mode/" + this.language.toLowerCase());
+    this.editor.setValue(this.defaultContent[this.language]);
+  }
 
 
 }
