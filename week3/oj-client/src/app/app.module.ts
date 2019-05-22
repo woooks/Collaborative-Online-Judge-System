@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,9 +10,12 @@ import { ProblemDetailComponent } from './components/problem-detail/problem-deta
 import { NewProblemComponent } from './components/new-problem/new-problem.component';
 import { CallbackComponent } from './components/callback/callback.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { AuthService } from "./services/auth.service";
-import { RouterModule } from '@angular/router';
 import { ProfileComponent } from './components/profile/profile.component';
+import { EditorComponent } from './components/editor/editor.component';
+import { Editor1Component } from './components/editor_1/editor.component';
+import { SearchPipe } from './pipes/search.pipe';
+
+import { InputService } from './services/input.service';
 
 
 @NgModule({
@@ -22,16 +26,21 @@ import { ProfileComponent } from './components/profile/profile.component';
     NewProblemComponent,
     NavbarComponent,
     CallbackComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditorComponent,
+    Editor1Component,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
+    ReactiveFormsModule,
+    HttpClientModule
     // RouterModule.forRoot(AppRoutingModule)
   ],
-  providers: [],
+  providers: [InputService],
+  // {provide: "inputService", useClass: InputService}
   bootstrap: [AppComponent]
 })
 export class AppModule { }

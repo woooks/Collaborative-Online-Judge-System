@@ -16,6 +16,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
+    this.authService.getLoginInfoFromLocalStorage()
     if (this.authService.isAuthenticated()) {
       this.authService.renewTokens();
     }

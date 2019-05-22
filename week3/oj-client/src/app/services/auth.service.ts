@@ -29,10 +29,12 @@ export class AuthService {
     domain: AUTH_CONFIG.domain,
     responseType: 'token id_token',
     redirectUri: AUTH_CONFIG.callbackURL,
-    scope: 'openid profile'
+    scope: 'openid profile roles'
   });
 
-  constructor(public router: Router) {
+  constructor(
+    public router: Router,
+  ) {
     this._idToken = '';
     this._accessToken = '';
     this._expiresAt = 0;
@@ -50,19 +52,6 @@ export class AuthService {
     this.auth0.authorize();
   }
 
-  // public handleAuthentication(): void {
-  //   this.auth0.parseHash((err, authResult) => {
-  //     // localStorage.setItem('authResult', JSON.stringify(authResult));
-  //     if (authResult && authResult.accessToken && authResult.idToken) {
-  //       this.localLogin(authResult);
-  //       this.router.navigate(['/problems']);
-  //     } else if (err) {
-  //       this.router.navigate(['/problems']);
-  //       console.log(err);
-  //       alert(`Error: ${err.error}. Check the console for further details.`);
-  //     }
-  //   });
-  // }
 
   public handleAuthentication(): void {
     this.auth0.parseHash((err, authResult) => {
@@ -84,6 +73,11 @@ export class AuthService {
     this._accessToken = authResult.accessToken;
     this._idToken = authResult.idToken;
     this._expiresAt = expiresAt;
+
+    //store token in localStorage
+    localStorage.setItem('authResult', JSON.stringify(authResult));
+    localStorage.setItem('expiresAt', expiresAt.toString());
+
   }
 
   public renewTokens(): void {
@@ -102,10 +96,26 @@ export class AuthService {
     this._accessToken = '';
     this._idToken = '';
     this._expiresAt = 0;
+    localStorage.removeItem('authResult');
+    localStorage.removeItem('expireAt');
+    // window.open('https://dev-y8qvye3u.auth0.com/v2/logout');
     this.auth0.logout({
-      // returnTo: window.location.origin
-      returnTo: 'http://localhost:3000/problems'
+      clientID: AUTH_CONFIG.clientID,
+      returnTo: window.location.origin
     });
+  }
+
+  public getLoginInfoFromLocalStorage(): void {
+    let authResult = localStorage.getItem('authResult');
+    let expireAt = localStorage.getItem('expiresAt');
+    if (authResult && expireAt) {
+      this._expiresAt = parseInt(expireAt);
+      this._accessToken = JSON.parse(authResult).accessToken;
+    } else {
+      this._accessToken = '';
+      this._idToken = '';
+      this._expiresAt = 0;
+    }
   }
 
   public isAuthenticated(): boolean {
@@ -129,48 +139,28 @@ export class AuthService {
   }
 
   resetPassword() {
-    
+
   }
 
-  // public saveToken(hash): void {
-  //   localStorage.setItem('hash', JSON.stringify(hash));
-  // }
+  isAdmin(cb): void {
+    if (!this._accessToken) {
+      cb(false);
+    } else if (!this.userProfile) {
+      this.getProfile((err, profile) => {
+        if (profile){
+          cb(true);
+        } else {
+          console.log(err);
+          cb(false);
+        }
+      })
+    } else {
+      if (this.userProfile.nickname == "admin") {
+        console.log(this.userProfile.nickname)
+        cb(true);
+      }
+    }
+  }
+
 
 }
-
-// import { Injectable } from '@angular/core';
-// import {tokenNotExpired} from 'angular2-jwt';
-//
-// declare var Auth0Lock: any;
-//
-// @Injectable()
-// export class AuthService {
-//   clientID = 'YJKK5QrLh3Ghgb77UFI2T_O7YZkZpdgS';
-//   domain = 'dev-y8qvye3u.auth0.com';
-//   lock = new Auth0Lock(this.clientID, this.domain, {});
-//
-//   constructor() {
-//
-//   }
-//
-//   public login() {
-//     this.lock.show((error: string, profile: Object, id_token:string)=> {
-//       if(error) {
-//         console.log(error);
-//       } else {
-//         localStorage.setItem('profile', JSON.stringify(profile));
-//         localStorage.setItem('id_token', id_token);
-//       }
-//     });
-//   }
-//
-//   public authenticated() {
-//     return tokenNotExpired();
-//   }
-//
-//   public logout() {
-//     localStorage.removeItem('id_token');
-//     localStorage.removeItem('profile');
-//   }
-//
-// }

@@ -4,9 +4,9 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <button type="button" name="button" (click)="test()">Test</button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <form class="form-inline">
-      <input class="form-control " type="search" placeholder="Search" aria-label="Search">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+    <form class="form-inline" (ngSubmit)="searchProblem()">
+      <input class="form-control " type="search" placeholder="Search" aria-label="Search" [formControl]="searchBox">
       <button class="btn btn-outline-success ml-2" type="submit">Search</button>
     </form>
     <ul class="nav navbar-nav ml-auto">
@@ -17,10 +17,15 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" routerLink="/profile">My Profile</a>
-          <a class="dropdown-item" href="#">My Favorites</a>
-          <a class="dropdown-item" href="#">My Submissions</a>
+          <a class="dropdown-item" >My Favorites</a>
+          <a class="dropdown-item" >My Submissions</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" (click)="logout()">Log Out</a>
+          <a class="dropdown-item" (click)="logout()">Log Out</a>
+
+          <!-- bug!!!! -->
+          <!-- <a class="dropdown-item" href='#' (click)="logout()" >Log Out</a> -->
+          <!-- bug!!!! -->
+
         </div>
       </li>
     </ul>

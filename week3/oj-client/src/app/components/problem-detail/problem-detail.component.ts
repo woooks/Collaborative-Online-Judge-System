@@ -13,14 +13,15 @@ export class ProblemDetailComponent implements OnInit {
 
   problem: Problem;
 
+
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService,
-    // private location: Location
   ) { }
 
   ngOnInit() {
     this.getProblem();
+
   }
 
   getProblem(): void {
@@ -29,4 +30,6 @@ export class ProblemDetailComponent implements OnInit {
         .subscribe(problem => this.problem = problem);
     });
   }
+
+
 }

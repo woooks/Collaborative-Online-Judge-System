@@ -29,7 +29,11 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/auth0-js/build/auth0.js"
+              "node_modules/auth0-js/build/auth0.js",
+              "node_modules/ace-builds/src-noconflict/ace.js",
+              "node_modules/ace-builds/src-noconflict/mode-java.js",
+              "node_modules/ace-builds/src-noconflict/theme-dracula.js",
+              "node_modules/socket.io-client/dist/socket.io.js"
             ],
             "es5BrowserSupport": true
           },
