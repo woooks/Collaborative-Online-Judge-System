@@ -448,6 +448,11 @@ var Editor1Component = /** @class */ (function () {
             'Python': "class Solution:\n      def example():\n        # Please type your code here...\n    ",
             'C++': "int main(){\n        /* Please type your code here... */\n      }"
         };
+        this.defaultLanguage = {
+            'Java': 'java',
+            'Python': 'python',
+            'C++': 'c_cpp'
+        };
     }
     Editor1Component.prototype.ngOnInit = function () {
         var _this = this;
@@ -487,7 +492,7 @@ var Editor1Component = /** @class */ (function () {
         this.resetEditor();
     };
     Editor1Component.prototype.resetEditor = function () {
-        this.editor.getSession().setMode("ace/mode/" + this.language.toLowerCase());
+        this.editor.getSession().setMode("ace/mode/" + this.defaultLanguage[this.language].toLowerCase());
         this.editor.setValue(this.defaultContent[this.language]);
     };
     Editor1Component = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([

@@ -16,8 +16,8 @@ export class Editor1Component implements OnInit {
 
   editor: any;
   sessionId: string;
-  languages: string[] = ['Java', 'Python', 'C++'];
-  language: string = 'Java';
+  languages: string[] = ['Python', 'Java', 'C++'];
+  language: string = 'Python';
   output: string;
   users: string;
   subscriptionUsers: Subscription;
@@ -35,6 +35,11 @@ export class Editor1Component implements OnInit {
     'C++':`int main(){
         /* Please type your code here... */
       }`
+  }
+  defaultLanguage = {
+    'Java': 'java',
+    'Python':'python',
+    'C++':'c_cpp'
   }
 
   constructor(
@@ -86,7 +91,7 @@ export class Editor1Component implements OnInit {
   }
 
   resetEditor(): void {
-    this.editor.getSession().setMode("ace/mode/" + this.language.toLowerCase());
+    this.editor.getSession().setMode("ace/mode/" + this.defaultLanguage[this.language].toLowerCase());
     this.editor.setValue(this.defaultContent[this.language]);
   }
 

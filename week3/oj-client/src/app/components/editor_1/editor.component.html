@@ -6,15 +6,18 @@
 </div> -->
 <section>
   <header class="editor-header">
-    <select class="form-control pull-left lang-select" name="language"
-      [(ngModel)]="language" (change)="setLanguage(language)">
-      <option *ngFor="let language of languages" [value]="language">
-        {{language}}
-      </option>
-    </select>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-      Reset
-    </button>
+    <div class="row">
+      <select class="form-control pull-left lang-select mr-0" name="language"
+        [(ngModel)]="language" (change)="setLanguage(language)">
+        <option *ngFor="let language of languages" [value]="language">
+          {{language}}
+        </option>
+      </select>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Reset
+      </button>
+    </div>
+
 
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

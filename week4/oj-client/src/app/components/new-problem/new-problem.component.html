@@ -1,0 +1,30 @@
+<div class="container">
+  <form #formRef="ngForm" class="needs-validation" novalidate>
+    <div class="form-group" >
+      <label for="problemName">Problem Name</label>
+      <input type="text" class="form-control" id="problemName"
+       name="problemName" placeholder="Input problem name" [(ngModel)]="newProblem.name" required>
+    </div>
+    <div class="form-group">
+      <label for="problemDesc">Problem Description</label>
+      <textarea type="text" class="form-control" rows ="4" id="problemDesc" name="problemDesc"
+       placeholder="Input problem description" [(ngModel)]="newProblem.desc" required>
+     </textarea>
+    </div>
+    <div class="form-group">
+      <label for="difficulty">Difficulty</label>
+      <select class="form-control" id="difficulty" name="difficulty" [(ngModel)]="newProblem.difficulty">
+        <option value="" disabled selected>Select Difficulty</option>
+        <option *ngFor="let difficulty of difficulties" [value]="difficulty">
+          {{difficulty}}
+        </option>
+      </select>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button type="submit" class="btn btn-primary pull-right"
+         (click)="addProblem()">Add Problem</button>
+      </div>
+    </div>
+  </form>
+</div>
