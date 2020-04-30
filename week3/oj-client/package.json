@@ -26,7 +26,7 @@
     "auth0-js": "^9.10.2",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "rxjs": "~6.5.2",
     "rxjs-compat": "^6.5.2",
     "socket.io": "^2.2.0",
